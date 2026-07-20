@@ -25,7 +25,7 @@ The project is intended to demonstrate practical infrastructure skills including
 flowchart TB
     USER[Internet User]
     DNS[Cloudflare DNS]
-    FW[Server Firewall<br/>Ports 80 and 443]
+    FW[AWS Lightsail Firewall<br/>Ports 80 and 443]
     LE[Let's Encrypt ACME]
 
     subgraph HOST[Linux Docker Host]
@@ -74,8 +74,7 @@ flowchart TB
 | [selfhosted-traefik-proxy](https://github.com/jacobamrine/selfhosted-traefik-proxy) | Shared Traefik reverse proxy, HTTPS certificate management, Docker routing, and protected dashboard |
 | [selfhosted-actual-budget](https://github.com/jacobamrine/selfhosted-actual-budget) | Actual Budget application stack with Traefik routing, rate limiting, a health check, and persistent storage |
 | [homelab](https://github.com/jacobamrine/homelab) | Architecture diagrams, design decisions, and links connecting the separate infrastructure repositories |
-
-The portfolio site is documented separately as [Project 03](https://github.com/jacobamrine/my-website), although it follows a similar containerized deployment pattern.
+| [Portfolio](https://github.com/jacobamrine/my-website) | Staging and production website |
 
 ## Design Decisions
 
@@ -113,21 +112,6 @@ Values such as hostnames, image versions, certificate email addresses, and authe
 - Actual Budget includes a container health check
 - Containers use restart policies for recovery after a host or Docker restart
 - Application state is separated from the container lifecycle through persistent volumes
-
-## Repository Layout
-
-This overview repository is intentionally documentation-focused.
-
-```text
-homelab/
-├── README.md
-└── docs/
-    ├── architecture.md
-    ├── security.md
-    └── recovery.md
-```
-
-The `docs` directory is optional and can be added as the project documentation grows.
 
 ## Deployment Model
 
